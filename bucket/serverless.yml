@@ -17,7 +17,7 @@ resources:
     ImageResizeOnTheFly:
       Type: AWS::S3::Bucket
       Properties:
-        AccessControl: PublicReadWrite
+        AccessControl: PublicRead
         BucketName: ${env:BUCKET}
         WebsiteConfiguration:
           ErrorDocument: error.html
