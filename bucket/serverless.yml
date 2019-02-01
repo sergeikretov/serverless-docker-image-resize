@@ -8,7 +8,7 @@ provider:
   runtime: nodejs8.10
   stage: ${env:STAGE, 'dev'}
   profile: serverless-admin
-  region: us-east-1
+  region: eu-west-1
   environment:
     BUCKET: ${env:BUCKET}
 
@@ -23,7 +23,7 @@ resources:
           ErrorDocument: error.html
           IndexDocument: index.html
           RoutingRules:
-            - 
+            -
               RedirectRule:
                 HostName: ${self:custom.secrets.DOMAIN}
                 HttpRedirectCode: "307"
@@ -34,21 +34,21 @@ resources:
                 KeyPrefixEquals: ""
     ImageResizeOnTheFlyPolicy:
       Type: AWS::S3::BucketPolicy
-      Properties: 
-        Bucket: 
+      Properties:
+        Bucket:
           Ref: ImageResizeOnTheFly
-        PolicyDocument: 
-          Statement: 
-            - 
-              Action: 
+        PolicyDocument:
+          Statement:
+            -
+              Action:
                 - "s3:*"
               Effect: "Allow"
               Resource:
-                Fn::Join: 
+                Fn::Join:
                   - ""
-                  - 
+                  -
                     - "arn:aws:s3:::"
-                    - 
+                    -
                       Ref: ImageResizeOnTheFly
                     - "/*"
               Principal: "*"

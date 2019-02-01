@@ -9,7 +9,7 @@ provider:
   stage: ${env:STAGE, 'dev'}
   profile: serverless-admin
   tracing: true
-  region: ${env:REGION, 'us-east-1'}
+  region: ${env:REGION, 'eu-west-1'}
   environment:
     BUCKET: ${env:BUCKET}
     REGION: ${env:REGION}
